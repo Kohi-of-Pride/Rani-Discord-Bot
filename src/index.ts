@@ -15,12 +15,10 @@ const client = new Client({
 	partials: [Partials.GuildMember],
   });
   
-  // When the bot is ready…
   client.once('ready', async () => {
 	console.log(`Logged in as ${client.user?.tag}`);
   
 	// Schedule the job using node-cron.
-	// In this example, the job runs every Monday at midnight (00:00). /// although it is currently set for every minute for testing purposes
 	cron.schedule('0 0 * * 6', async () => {
 	  console.log('Starting scheduled EOTW assignment job...');
 	  try {
